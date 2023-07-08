@@ -9,5 +9,13 @@ from .models import Company
 class CompanySerializers(serializers.ModelSerializer):
     class Meta:
         model = Company
-        # fields = '__all__'
-        exclude = ['company_id',]
+        fields = '__all__'
+        # exclude = ['company_id',]
+
+    def validate(self, data):
+        if data['name']:
+            for n in data['name']:
+                if n.isdigit():
+                    raise serializers.ValidationError({"error":"name cannot contain numeric value"})
+    
+        return data

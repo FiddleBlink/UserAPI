@@ -29,3 +29,31 @@ def post_company(request):
     serializer.save()
 
     return Response({"status":200, "payload": serializer.data, "message": "You sent"})
+
+@api_view(['PATCH'])
+def update_company(request, pk):
+    try:
+        data = request.data
+        company_obj = Company.objects.get(company_id = pk)
+        serializer = CompanySerializers(company_obj, data = data, partial = True)
+
+        if not serializer.is_valid():
+            print(serializer.errors)
+            return Response({"status":403, "errors":serializer.errors, "message":"something went wrong"})
+        
+        serializer.save()
+
+        return Response({"status":200, "payload": serializer.data, "message": "You sent"})
+    except Exception as e:
+        return Response({"status":403, "errors":"invalid id"})
+    
+
+@api_view(['DELETE'])
+def delete_company(request, pk):
+    try:
+        company_obj = Company.objects.get(company_id = pk)
+        company_obj.delete()
+        return Response({"status":200, "message":"Comapany was successfully deleted"})
+    except Exception as e:
+        print(e)
+        return Response({"status":403, "errors":"Invalid ID"})

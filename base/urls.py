@@ -7,6 +7,8 @@ from rest_framework import routers
 
 urlpatterns = [
     # path('api/', include(router.urls)),
-    path('getcompanies/', get_company),
-    path('postcompanies/', post_company)
+    path('get_company/', get_company),
+    path('post_company/', post_company),
+    path('update_company/<str:pk>/', update_company),
+    path('delete_company/<str:pk>/', delete_company),
 ]
