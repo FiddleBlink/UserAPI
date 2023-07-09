@@ -43,7 +43,7 @@ class Company(models.Model):
     def __str__(self):      #you convert a Company object to a string, it will return the value of its name attribute.
         return self.name
 
-class employee(models.Model):
+class Employee(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=10)
