@@ -6,6 +6,8 @@ from rest_framework import routers
 # router.register(r'companies', CompanyViewSet)
 
 urlpatterns = [
+
+    ################################## API PATHS #################################
     # path('api/', include(router.urls)),
     # path('get_company/', get_company),
     # path('post_company/', post_company),
@@ -13,7 +15,13 @@ urlpatterns = [
     # path('delete_company/<str:pk>/', delete_company),
 
     path('company/',CompanyAPI.as_view()),
-    path('register/',UserAPI.as_view()),
-    path('get_employee/', get_employee),
-    path('post_employee/', post_employee),
+    # path('api/register/',UserAPI.as_view()),
+    # path('get_employee/', get_employee),
+    # path('post_employee/', post_employee),
+
+    ################################## USER PATHS ################################
+    path('home/', home, name='home'),
+    path('register/', register, name="register"),
+    path('login/', loginuser, name="login"),
+    path('logout/', logoutuser, name='logout')
 ]

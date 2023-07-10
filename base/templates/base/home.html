@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Home</h1>
+<h2>Helo {{request.user}}</h2>
+<a href="{% url 'register' %}">Register</a>
+<a href="{% url 'logout' %}">Logout</a>
+<a href="/company/">COmpany</a>
+
+{% endblock content %}

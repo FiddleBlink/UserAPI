@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container w-75">
+    <div class="row d-flex justify-content-center">
+        <h1>REGISTER</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% for fields in form %}
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">{{fields.label}}*</label>
+                {{fields}}
+            </div>
+            {% endfor %}
+            <button id="submit" type="submit">Register</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

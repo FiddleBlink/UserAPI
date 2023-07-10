@@ -4,17 +4,18 @@
 
 <div class="container w-75">
     <div class="row d-flex justify-content-center">
+        <h1>LOGIN</h1>
         <form action="" method="POST">
             {% csrf_token %}
             <div>
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email">
+                <input required type="email" name="email" id="email">
             </div>
             <div>
-                <label for="password">Email</label>
-                <input type="text" name="password" id="password">
+                <label for="password">Password</label>
+                <input required type="password" name="password" id="password">
             </div>
-            <button type="submit">Login</button>
+            <button id="submit" type="submit">Login</button>
         </form>
     </div>
 </div>
